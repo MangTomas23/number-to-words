@@ -63,7 +63,7 @@ class EnglishCurrencyTransformer implements CurrencyTransformer
         }
 
         if (null !== $fraction) {
-            $return .= ' ' . trim($numberTransformer->toWords($fraction));
+            $return .= ' AND ' . trim($numberTransformer->toWords($fraction));
 
             $level = $fraction === 1 ? 0 : 1;
 
@@ -78,6 +78,6 @@ class EnglishCurrencyTransformer implements CurrencyTransformer
             }
         }
 
-        return $return;
+        return strtoupper($return . ' ONLY');
     }
 }
